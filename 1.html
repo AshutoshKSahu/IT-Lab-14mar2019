@@ -1,0 +1,137 @@
+<html>
+<head>
+ <title>Js Validation</title>     
+
+
+ <script type="text/javascript">
+ function validateForm()
+  {
+   var name=document.getElementById("Name").value;
+  
+   var adress=document.getElementById("ad").value;
+ var e = document.getElementById("state");
+var strUser = e.options[e.selectedIndex].value;
+   var no=document.getElementById("phone").value;
+   var x=document.getElementById("e").value;
+   var p=document.getElementById("pas").value;
+   
+ 
+   if(name=="")
+   {
+   alert("Name field empty");
+   return false;
+   }
+   else
+   {
+   for(i=0;i<name.length;i++)
+    if(!((name.charAt(i)>='a'&&name.charAt(i)<='z')||(name.charAt(i)>='A'&&name.charAt(i)<='Z')))
+    {
+    alert("enter apphabets only in name field");
+    return false;
+    }
+   }
+   
+   if(name.length<5)
+   {
+   alert("username length should greater than 5 ");
+   return false;
+   }
+   
+   
+   
+
+   
+   
+   
+   if(adress=="")
+   {
+   alert("Address field empty");
+   return false;
+   }
+
+
+if(strUser==0) 
+{
+alert("Please select your state");
+return false;
+}
+
+
+   
+   if(no=="")
+   {
+   alert("phone field empty");
+   return false;
+   }
+      
+   if(no.length>10||no.length<10)
+   {
+   alert("invalid phone number");
+   return false;
+   }
+   else
+   {
+    for(i=0;i<no.length;i++)
+    if(!(no.charAt(i)>='0'&&no.charAt(i)<='9'))
+    {
+    alert("enter   only numbers in phone field");
+    return false;
+    }
+   }
+   
+    
+   if(x=="")
+   {
+   alert("email field empty");
+   return false;
+   }
+   else
+   {
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+    {
+    alert("Not a valid e-mail address");
+    return false;
+    }
+    }
+   
+   if(p=="")
+{
+alert("Password field can no be empty");
+return false;
+} 
+ }
+ function reset()
+ {
+ document.getElementById("UserReg").reset();
+ }
+</script>
+
+</head>
+<body>
+<center>
+
+
+<form  name="UserReg" action="User.html" method="post" onSubmit="return validateForm()"> 
+
+   	<p>Name :&nbsp;<input type="text"  id="Name" size="25"/></p></br>
+  	<p>Address  :&nbsp;<input type="text"  id="ad" size="25"/></p></br>
+	<p>Email ID :&nbsp;<input type="text" id="e" size="25"/></p></br>
+	<p>Password :&nbsp;<input type="password" name="pas" size="25"></p></br>
+	<p>State  :&nbsp;<select id="state">
+	   <option value="0">select</option>
+	  <option value="1">Kerala</option>
+	  <option value="2">Karnataka</option>
+	  <option value="3">AndraPradesh</option>
+	  <option value="4">Tamilnadu</option>
+	</select></p></br>
+	<p>Telephone  :&nbsp;<input type="text" id="phone" size="25"/></p></br>
+	<p>Comment  :&nbsp;<input type="text" id="cmt" size="25"/></p></br>
+  	<p><input type="submit" value="Sign Up" name="UserSigUp"/>
+  	<input type="button" value="Reset" name="UserSigUp" onclick="reset()"/></p>
+   
+</form>
+</center>
+</body>
+</html>
